@@ -1,4 +1,4 @@
-// py-worker.js - SAi Python Compiler Web Worker v1.1
+// py-worker.js - HK Edu Python Compiler Web Worker
 import { loadPyodide } from 'https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.mjs';
 
 let pyodide = null;

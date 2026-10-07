@@ -1,6 +1,6 @@
 # HK Edu Python Compiler
 
-瀏覽器內 Python 編譯器（MVP）：以 **Pyodide** 執行 Python，並支援 **NumPy**／**pandas**；可上傳 CSV 後於程式碼中以 `pd.read_csv('檔名.csv')` 讀取。
+瀏覽器內 Python 編譯器：以 **Pyodide** 執行 Python，並支援 **NumPy**／**pandas**；可上傳 CSV 後於程式碼中以 `pd.read_csv('檔名.csv')` 讀取。
 
 **示範：** https://kyleyct.github.io/hkedu-python-compiler/
 

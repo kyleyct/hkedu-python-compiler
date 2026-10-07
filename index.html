@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAi Python Compiler</title>
+  <title>HK Edu Python Compiler</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #e0e0e0; height: 100vh; display: flex; flex-direction: column; }
@@ -62,11 +62,6 @@
     .spinner { width: 48px; height: 48px; border: 4px solid #0f3460; border-top-color: #4fc3f7; border-radius: 50%; animation: spin 1s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
     #loading-text { color: #4fc3f7; font-size: 1rem; }
-
-    /* SAi inject bar */
-    #inject-area { background: #16213e; border-top: 1px solid #0f3460; padding: 7px 16px; display: flex; align-items: center; gap: 10px; font-size: 0.78rem; color: #90caf9; flex-shrink: 0; }
-    #inject-code { flex: 1; background: #0d1117; color: #c9d1d9; border: 1px solid #0f3460; border-radius: 4px; padding: 4px 8px; font-size: 0.78rem; font-family: monospace; }
-    #inject-area button { padding: 4px 12px; background: #4caf50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.78rem; }
   </style>
 </head>
 <body>
@@ -77,8 +72,7 @@
 </div>
 
 <header>
-  <h1>SAi Python Compiler</h1>
-  <span class="badge">MVP v1.1</span>
+  <h1>HK Edu Python Compiler</h1>
   <span class="badge">Pyodide</span>
   <span class="badge">NumPy + pandas</span>
 </header>
@@ -119,12 +113,6 @@
     <div class="panel-title">RESULT PREVIEW (DataFrame / Value)</div>
     <div id="result-area"></div>
   </div>
-</div>
-
-<div id="inject-area">
-  <span>SAi 注入程式碼：</span>
-  <input id="inject-code" type="text" placeholder="由 SAi LLM 自動填入的程式碼將顯示於此..." readonly />
-  <button onclick="injectCode()">注入 Editor</button>
 </div>
 
 <script>
@@ -304,7 +292,7 @@
   // ── Examples ─────────────────────────────────
 
   const examples = {
-    'btn-example1': `# Hello World\nprint("Hello from SAi Python Compiler!")\nprint("NumPy version:", __import__('numpy').__version__)\nprint("pandas version:", __import__('pandas').__version__)`,
+    'btn-example1': `# Hello World\nprint("Hello from HK Edu Python Compiler!")\nprint("NumPy version:", __import__('numpy').__version__)\nprint("pandas version:", __import__('pandas').__version__)`,
     'btn-example2': `import numpy as np\n\narr = np.array([1, 2, 3, 4, 5])\nprint("Array:", arr)\nprint("Mean:", np.mean(arr))\nprint("Std:", np.std(arr))\nprint("Sum:", np.sum(arr))\n\nmatrix = np.random.rand(3, 3)\nprint("\\nRandom 3x3 matrix:\\n", matrix)`,
     'btn-example3': `import pandas as pd\nimport numpy as np\n\n# 如已上傳 CSV，可用：\n# df = pd.read_csv('你的檔名.csv')\n\n# 示例：建立 DataFrame\ndata = {\n    '學生': ['Alice', 'Bob', 'Charlie', 'Diana'],\n    '數學': [85, 92, 78, 96],\n    '英文': [88, 75, 91, 83],\n    '科學': [90, 88, 85, 79]\n}\ndf = pd.DataFrame(data)\ndf['平均分'] = df[['數學', '英文', '科學']].mean(axis=1).round(1)\nprint(df.to_string())\nresult = df`
   };
@@ -315,17 +303,6 @@
     };
   });
 
-  // ── SAi Inject ────────────────────────────────
-
-  function injectCode() {
-    const injected = document.getElementById('inject-code').value;
-    if (injected) {
-      document.getElementById('editor').value = injected;
-      log('✓ 程式碼已由 SAi 注入', 'success');
-    }
-  }
-
-  window.injectCode = injectCode;
   window.removeCSV = removeCSV;
 
   initWorker();
